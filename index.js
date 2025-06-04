@@ -47,25 +47,24 @@ function onSearchChange(event) {
 }
 
 async function renderMovie(title) {
-    const movies = await fetch(`http://www.omdbapi.com/?apikey=eae28b65&s=${title}`)
-    const moviesData = await movies.json()
+    const movies = await fetch(`http://www.omdbapi.com/?apikey=eae28b65&s=${title}`);
+    const moviesData = await movies.json();
+
+    function movieHTML(movie) { 
+        return `<img src="${movie.Poster}" alt="">
+                <h2>${movie.Title}</h2>
+                <p>Year: ${movie.Year}</p>
+                `
+    }
+
     console.log(moviesData);
 
-    if (moviesData) {
-        const movieHTML = `
-            <h2>${moviesData.Title}</h2>
-            <p>Year: ${moviesData.Year}</p>
-            <p>Rating: ${moviesData.imdbRating}</p>
-            <p>Runtime: ${moviesData.Runtime}</p>
-            <p>Genre: ${moviesData.Genre}</p>
-            <p>Director: ${moviesData.Director}</p>
-            <p>Writer: ${moviesData.Writer}</p>
-            <p>Actors: ${moviesData.Actors}</p>
-            <p>Plot: ${moviesData.Plot}</p>
-        `;
-        movieList.innerHTML = movieHTML; // Display the movie details
+    const movieListElement = document.getElementById('movieList'); // Make sure you have an element with this ID
+
+    if (moviesData.Search && moviesData.Search.length > 0) {
+        movieListElement.innerHTML = moviesData.Search.map(movie => movieHTML(movie)).join('');
     } else {
-        movieList.innerHTML = `<p>No movie found!</p>`;
+        movieListElement.innerHTML = `<p>No movie found!</p>`;
     }
 }
 
@@ -76,4 +75,7 @@ function showMovies(title) {
     console.log(title)
 }
 
-renderMovie(`zoo`)
+
+
+renderMovie(`disney`)
+
