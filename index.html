@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieLookup</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/7750fa037a.js" crossorigin="anonymous"></script>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+</style>
+</head>
+<body>
+    <header id="nav">
+        <div class="navbar__wrapper df aic front">
+            <div class="logo df front">
+                <i class="fa-solid fa-film df logo__img"></i>
+                <p class="site__name">Film Data</p>
+            </div>
+            <div class="links df aic front">
+                <a href="#" class="link">Home</a>
+                <a href="#" class="link__btn">Find a Movie</a>
+            </div>
+        </div>
+        <div class="search__wrapper aic df front">
+                <h1 class="title front">
+                    Browse All Movies
+                </h1>
+                <div class="searchbar df front">
+                    <input type="text" class="searchbar__input" placeholder="Search for a Movie">
+                    <div class="searchbar__input--img df">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+        </div>
+        <div class="overlay">
+        </div>
+    </header>
+    <section id="search">
+        <div class="filter__wrapper df aic">
+    <h1 class="search__info df">
+        <span>Search Results: </span>
+    </h1>
+    <div class="slider-container df aic"> 
+    <p class="time__range">Time Range: <span id="minValue">30</span> mins - <span id="maxValue">300</span> mins</p>
+    <input type="range" id="minSlider" min="30" max="300" value="30" class="slider__1 slider">
+    <input type="range" id="maxSlider" min="30" max="300" value="300" class="slider__2 slider">
+    </div>
+        </div>
+        <div class="movie-list">
+    <div class="movie">
+      <div class="movie__title">
+        Post Title
+      </div>
+      <p class="movie__body">
+        Post Body
+      </p>
+    </div>
+  </div>
+    </section>
+</body>
+<script src="index.js"></script>
+</html>

@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubric", sans-serif;
+    text-decoration: none;
+}
+
+.df{
+    display: flex;
+}
+
+.jcc{
+    justify-content: center;
+}
+
+.aic{
+    align-items: center;
+}
+
+.tac{
+    text-align: center;
+}
+
+.btn{
+    min-height: 48px;
+    border: 2px #fff;
+    background-color: #fff;
+    padding: 12px 40px;
+    color: #0a1f44 !important;
+    border-radius: 50px;
+}
+
+.front{
+    z-index: 20;
+}
+
+/* NAVBAR */
+
+#nav{
+    height: 326px;
+    position: relative;
+    padding: 40px 15px;
+    background-color: grey;
+}
+
+.navbar__wrapper{
+    flex-direction: row;
+    margin-top: -20px;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.logo__img{
+    font-size: 40px;
+    padding-left: 12px;
+    padding-right: 20px;
+    color: #0a1f44;
+}
+
+.site__name{
+    margin-top: 3px;
+    font-size: 30px;
+    color: #fff;
+}
+
+.links{
+    justify-content: space-between;
+    width: 100%;
+    max-width: 280px;
+    padding-right: 10px;
+}
+
+.link{
+    color: #ffffff;
+    font-size: 18px;
+    position: relative;
+}
+
+.link:hover::after{
+    width: 100%;
+    left: 0;
+}
+
+.link:after{
+    background-color: rgb(255, 255, 255);
+    content: "";
+    position: absolute;
+    left:auto;
+    right: 0;
+    height: 3px;
+    width: 0;
+    bottom: -3px;
+    transition: all 300ms;
+}
+
+
+.link__btn{
+    cursor: pointer;
+    max-height: 48px;
+    border: 2px rgb(59, 71, 139);
+    background-color: rgb(255, 255, 255);
+    color: #0a1f44;
+    padding: 12px 40px;
+    border-radius: 50px;
+    transition: all 300ms ease;
+}
+
+.link__btn:hover{
+    background-color: rgb(175, 113, 165);
+    color: #fff;
+}   
+
+.search__wrapper{
+    flex-direction: column;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.title{
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.25;
+    font-size: 45px;
+    max-width: 1000px;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.searchbar{
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+    
+}
+
+.searchbar__input{
+    width: 100%;
+    max-width: 800px;
+    height: 60px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.searchbar__input--img{
+    position: absolute;
+    top: 14px;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    color: #0a1f44;
+    font-size: 32px;
+    padding: 0 20px 0 8px;
+    transition: all 300ms ease;
+}
+
+.searchbar__input--img:hover{
+    color: rgb(175, 113, 165);
+}
+
+.overlay{
+    background-image: url(assets/pngtree-a-visually-striking-and-artistic-image-of-film-reel-with-blank-image_17283659\ \(1\).jpg);
+    background-position: 50%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.overlay::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #684777;
+    opacity: 0.83;
+    pointer-events: none;
+}
+
+.filter__wrapper{
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.slider-container {
+    width: 300px;
+    position: relative;
+    flex-direction: column;
+    margin-top: 25px;
+    width: 30%;
+    min-width: 335px;
+    margin-right: 50px;
+}
+
+.slider{
+background-color: #684777;
+cursor: grab;
+}
+
+
+input[type="range"] {
+    width: 100%;
+}
+
+.time__range{
+    margin-bottom: 12px;
+    font-size: 20px;
+
+}
+
+.search__info{
+    flex-direction: column;
+    padding: 20px 0;
+    font-size: 28px;
+    margin-left: 50px;
+}
