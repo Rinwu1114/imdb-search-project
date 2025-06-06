@@ -27,19 +27,18 @@ maxSlider.addEventListener('input', () => {
     }
 });
 
+document.querySelector(`.searchbar__input--img`).addEventListener(`click`, () =>{
+    const searchTerm = document.querySelector(`.searchbar__input`).value
+    if (searchTerm.trim() !== ""){
+        renderMovie(searchTerm)
+        localStorage.setItem(`Title`, searchTerm)
+    }
+})
+
 const movieList = document.querySelector(`.movie-list`)
 const title = localStorage.getItem(`Title`)
 
-// async function main() {
-//   const movies = await fetch("http://www.omdbapi.com/?apikey=eae28b65&t=fast");
-//   const moviesData = await movies.json()
-//     console.log(moviesData)
-//   movieList.innerHTML = moviesData.map ( 
-//     (movie) => movieHTML(movie))
-//     .join(``)
-// }
 
-// main()
 
 function onSearchChange(event) {
     const title = event.target.value
@@ -47,25 +46,38 @@ function onSearchChange(event) {
 }
 
 async function renderMovie(title) {
-    const movies = await fetch(`http://www.omdbapi.com/?apikey=eae28b65&s=${title}`);
-    const moviesData = await movies.json();
-
-    function movieHTML(movie) { 
-        return `<img src="${movie.Poster}" alt="">
-                <h2>${movie.Title}</h2>
-                <p>Year: ${movie.Year}</p>
-                `
-    }
+    const response = await fetch(`http://www.omdbapi.com/?apikey=eae28b65&s=${title}`);
+    const moviesData = await response.json();
+    const movieListElement = document.querySelector('.movie-list');
+    // function movieHTML(movie) { 
+        
+    // }
 
     console.log(moviesData);
 
-    const movieListElement = document.getElementById('movieList'); // Make sure you have an element with this ID
-
-    if (moviesData.Search && moviesData.Search.length > 0) {
-        movieListElement.innerHTML = moviesData.Search.map(movie => movieHTML(movie)).join('');
-    } else {
-        movieListElement.innerHTML = `<p>No movie found!</p>`;
+     if (!moviesData || moviesData.Response === "False") {
+        movieListElement.innerHTML = `<p class = "error">No movie found!</p>`;
+        return;
     }
+
+    const movieHTML = await Promise.all(
+        moviesData.Search.map(async (movie) =>{
+            const detailResponse = await fetch(`http://www.omdbapi.com/?apikey=eae28b65&i=${movie.imdbID}`)
+                const details = await detailResponse.json()
+
+                return `
+                <div class = "movie df">
+                    <img class = "movie__img" src="${details.Poster}" alt="${details.Title}">
+                    <div class = 'movie__info df aic'>
+                        <h2 class = "movie__title">${details.Title}</h2>
+                        <p class = "movie__year">Year: ${details.Year}</p>
+                    </div>
+                </div>       
+                `
+            })
+        )
+        movieListElement.innerHTML = movieHTML.join('');
+        // movieListElement.innerHTML = moviesData.Search.map(movie => movieHTML(movie)).join('');
 }
 
 
@@ -75,7 +87,14 @@ function showMovies(title) {
     console.log(title)
 }
 
+const savedTitle = localStorage.getItem(`Title`);
+
+    if (savedTitle){
+        renderMovie(savedTitle)
+    }
 
 
-renderMovie(`disney`)
+
+
+// renderMovie(movieHTML)
 

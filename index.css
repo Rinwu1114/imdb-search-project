@@ -232,3 +232,44 @@ input[type="range"] {
     font-size: 28px;
     margin-left: 50px;
 }
+
+
+.movie-list{
+    flex-wrap: wrap;
+    width: 100%;
+    
+}
+
+.movie{
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 25%;
+    margin-top: 40px;
+
+    align-items: center;
+}
+
+.movie__info{
+    flex-direction: column;
+    max-width: 100%;
+    padding-top: 20px;
+    margin-top: 14px;
+}
+
+.movie__title{
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.movie__year{
+    margin-bottom: 20px;
+}
+
+.movie__img{
+    height: 250px;
+    width: 200px
+}
+
+.error{
+    font-size: 50px;
+}
