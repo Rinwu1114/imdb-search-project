@@ -52,6 +52,8 @@ async function renderMovie(title) {
     // function movieHTML(movie) { 
         
     // }
+    const searchedTitle = document.querySelector(`.search__title`)
+    searchedTitle.innerHTML = `<span> ${title}</span>`
 
     console.log(moviesData);
 
