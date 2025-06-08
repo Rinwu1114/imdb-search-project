@@ -63,7 +63,7 @@ async function renderMovie(title) {
     }
 
     const movieHTML = await Promise.all(
-        moviesData.Search.map(async (movie) =>{
+        moviesData.Search.slice(0, 6).map(async (movie) =>{
             const detailResponse = await fetch(`http://www.omdbapi.com/?apikey=eae28b65&i=${movie.imdbID}`)
                 const details = await detailResponse.json()
 
