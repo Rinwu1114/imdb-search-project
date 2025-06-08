@@ -1,32 +1,3 @@
-const minSlider = document.getElementById('minSlider');
-const maxSlider = document.getElementById('maxSlider');
-const minValue = document.getElementById('minValue');
-const maxValue = document.getElementById('maxValue');
-
-// Initialize values
-minValue.textContent = minSlider.value;
-maxValue.textContent = maxSlider.value;
-
-minSlider.addEventListener('input', () => {
-    minValue.textContent = minSlider.value;
-
-    // Prevent the minSlider from going above maxSlider
-    if (parseInt(minSlider.value) > parseInt(maxSlider.value)) {
-        minSlider.value = maxSlider.value;
-        minValue.textContent = minSlider.value;
-    }
-});
-
-maxSlider.addEventListener('input', () => {
-    maxValue.textContent = maxSlider.value;
-
-    // Prevent the maxSlider from going below minSlider
-    if (parseInt(maxSlider.value) < parseInt(minSlider.value)) {
-        maxSlider.value = minSlider.value;
-        maxValue.textContent = maxSlider.value;
-    }
-});
-
 document.querySelector(`.searchbar__input--img`).addEventListener(`click`, () =>{
     const searchTerm = document.querySelector(`.searchbar__input`).value
     if (searchTerm.trim() !== ""){
@@ -53,7 +24,7 @@ async function renderMovie(title) {
         
     // }
     const searchedTitle = document.querySelector(`.search__title`)
-    searchedTitle.innerHTML = `<span> ${title}</span>`
+    searchedTitle.innerHTML = `<span class="dynamic__search"> "${title}"</span>`
 
     console.log(moviesData);
 

@@ -41,11 +41,11 @@
     <h1 class="search__info df">
         <span>Search Results: <span class="search__title"></span> </span>
     </h1>
-    <div class="slider-container df aic"> 
-    <p class="time__range">Time Range: <span id="minValue">30</span> mins - <span id="maxValue">300</span> mins</p>
-    <input type="range" id="minSlider" min="30" max="300" value="30" class="slider__1 slider">
-    <input type="range" id="maxSlider" min="30" max="300" value="300" class="slider__2 slider">
-    </div>
+     <select id="filter" class="filter__selecter" onchange="filterMovies(event)">
+                <option value="" disabled selected>Sort</option>
+                <option value="LOW_TO_HIGH">Year, Low to High</option>
+                <option value="HIGH_TO_LOW">Year, High to Low</option>
+              </select>
         </div>
         <div id="movieList" class="movie-list df">
     <div class="movie">
