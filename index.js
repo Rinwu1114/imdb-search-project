@@ -17,23 +17,27 @@ function onSearchChange(event) {
 }
 
 async function renderMovie(title) {
+    
+    const movieListElement = document.querySelector('.movie-list');
+    const searchedTitle = document.querySelector(`.search__title`)
+    
+    movieListElement.innerHTML = `<div class = loading__wrapper df aic>
+            <img src="assets/movie_roll_icon_136382.png" class="spinner df aic" alt="">
+        </div>`
+
     const response = await fetch(`http://www.omdbapi.com/?apikey=eae28b65&s=${title}`);
     const moviesData = await response.json();
-    const movieListElement = document.querySelector('.movie-list');
-    // function movieHTML(movie) { 
-        
-    // }
-    const searchedTitle = document.querySelector(`.search__title`)
-    searchedTitle.innerHTML = `<span class="dynamic__search"> "${title}"</span>`
+    
+    searchedTitle.innerHTML = `<span class="dynamic__search"> "${title}"</span>`;
+    setTimeout(() => {
+        movieListElement.innerHTML = '';
 
-    console.log(moviesData);
-
-     if (!moviesData || moviesData.Response === "False") {
-        movieListElement.innerHTML = `<p class = "error">No movie found!</p>`;
-        return;
-    }
-
-    const movieHTML = await Promise.all(
+       if (!moviesData || moviesData.Response === "False") {
+        movieListElement.innerHTML = `<div class ="error__wrapper">
+        <p class = "error">No movie found!</p> 
+        </div>`;
+    } else{
+   async function renderMovie(title){const movieHTML = await Promise.all(
         moviesData.Search.slice(0, 6).map(async (movie) =>{
             const detailResponse = await fetch(`http://www.omdbapi.com/?apikey=eae28b65&i=${movie.imdbID}`)
                 const details = await detailResponse.json()
@@ -49,10 +53,24 @@ async function renderMovie(title) {
                 `
             })
         )
-        movieListElement.innerHTML = movieHTML.join('');
-        // movieListElement.innerHTML = moviesData.Search.map(movie => movieHTML(movie)).join('');
-}
+        movieListElement.innerHTML = movieHTML.join('');}     
+    renderMovie()
+} 
+    }, 1000);
+    
 
+if (filter === `LOW_TO_HIGH`) {
+    details.sort(
+      (a, b) =>
+        (a.Year - b.Year)
+    );
+  } else if (filter === `HIGH_TO_LOW`) {
+    details.sort(
+      (a, b) =>
+        (b.Year - a.Year)
+    );
+  }
+}
 
 function showMovies(title) {
     localStorage.setItem(`Title`, title)

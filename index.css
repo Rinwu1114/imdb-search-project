@@ -267,6 +267,32 @@
     width: 200px
 }
 
+.error__wrapper{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
 .error{
     font-size: 50px;
+}
+
+.loading__wrapper{
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.spinner{
+    width: 140px;
+    animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
