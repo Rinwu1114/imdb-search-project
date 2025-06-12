@@ -234,7 +234,6 @@
 .movie-list{
     flex-wrap: wrap;
     width: 100%;
-    
 }
 
 .movie{
@@ -264,7 +263,13 @@
 
 .movie__img{
     height: 250px;
-    width: 200px
+    width: 200px;
+    transition: all 300ms ease;
+}
+
+.movie__img:hover{
+    scale: 1.1;
+    cursor: not-allowed;
 }
 
 .error__wrapper{
@@ -287,6 +292,44 @@
     animation: rotate 600ms infinite linear;
 }
 
+#footer{
+    background-color: #684777;
+}
+
+.footer__wrapper{
+    background-color: #684777;
+    width: 100%;
+    height: 20vh;
+    margin-top: 50px;
+    position: relative;
+}
+
+.overlay__footer{
+    background-image: url(assets/pngtree-a-visually-striking-and-artistic-image-of-film-reel-with-blank-image_17283659\ \(1\).jpg);
+    background-position: 50%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    background-size: cover;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.overlay__footer::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #684777;
+    opacity: 0.83;
+    pointer-events: none;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0);
@@ -295,4 +338,138 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+@media(max-width: 1280px){
+    .movie__img{
+    height: 200px;
+    width: 150px
+    }
+
+.movie__title{
+    font-size: 20px;
+}
+
+.movie__year{
+    margin-bottom: 20px;
+}
+
+.filter__selecter{
+    margin-right: 80px;
+}
+}
+
+@media(max-width: 1024px){
+    .search__info{
+        font-size: 24px;
+    }
+    .filter__selecter{
+      margin-right: 50px;  
+    }
+    .site__name{
+    margin-top: 5px;
+    font-size: 24px;
+}
+    .link, .link__btn{
+        font-size: 18px;
+    }
+    .title{
+        font-size: 32px;
+    }
+    .searchbar__input{
+        max-width: 600px;
+        height: 50px;
+    }
+    .searchbar__input--img{
+        font-size: 28px;
+        top: 10px;
+    }
+    .searchbar{
+        max-width: 600px;
+    }
+}
+
+@media(max-width: 768px){
+    .search__info{
+        font-size: 22px;
+    }
+    .filter__selecter{
+        width: 150px;
+        font-size: 14px;
+    }
+    .link, .link__btn{
+        font-size: 16px;
+    }
+    .link__btn{
+        padding: 12px 32px;
+    }
+    .site__name{
+        margin-top: 5px;
+        font-size: 20px;
+    }
+    .logo__img{
+        font-size: 34px;
+        padding-left: 12px;
+        padding-right: 14px;
+    }
+    .searchbar{
+        width: 60%;
+    }
+    .movie__img{
+    height: 150px;
+    width: 100px
+    }
+    .movie__title{
+    font-size: 16px;
+    }
+    .movie__year{
+    font-size: 14px;
+    }
+    .title{
+        font-size: 28px;
+    }
+}
+
+@media(max-width: 640px){
+    .links{
+        max-width: 180px;
+    }
+    .link__btn{
+        padding: 10px 10px;
+    }
+    .link, .link__btn{
+        font-size: 14px;
+    }
+    .site__name{
+        margin-top: 5px;
+        font-size: 16px;
+    }
+    .logo__img{
+        font-size: 28px;
+        padding-left: 12px;
+        padding-right: 14px;
+    }
+    .title{
+        font-size: 24px;
+    }
+    .search__info{
+        font-size: 14px;
+    }
+    .filter__selecter{
+        font-size: 12px;
+        width: 130px;
+    }
+    .movie__img{
+    height: 120px;
+    width: 75px
+    }
+    .movie__title{
+    font-size: 14px;
+    }
+    .movie__year{
+    font-size: 12px;
+    }
+    .footer__wrapper{
+        height: 10vh;
+    }
 }
